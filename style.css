@@ -80,6 +80,10 @@ blockquote p {
   line-height: 1.1;
 }
 
+.special-thanks {
+  grid-column: 2 / 7;
+}
+
 .left {
   grid-column: 2 / 10;
 
