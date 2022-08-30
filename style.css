@@ -25,12 +25,16 @@ main {
   width: 100%;
   margin: 0px auto;
   padding: 120px 0px;
-  
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-h1, h2, h3, blockquote, blockquote p {
+h1,
+h2,
+h3,
+blockquote,
+blockquote p {
   font-family: Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -42,40 +46,45 @@ canvas {
   left: 0;
 }
 
-  header {
-    background: var(--dark-bg);
-    background-color: rgba(0, 0, 0, 0.6);
-    grid-column: 2 / span 5;
-    font-size: 2.5rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);
-  }
+header {
+  background: var(--dark-bg);
+  background-color: rgba(0, 0, 0, 0.6);
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
+}
 
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: var(--dark-bg);
-    background-color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-  }
+section {
+  grid-column: 2 / 8;
+  padding: 1rem;
+  background: var(--dark-bg);
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
 
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
 
-  blockquote p {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    font-size: 4rem;
-    display: inline;
-    line-height: 1.1;
-  }
+blockquote p {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 4rem;
+  display: inline;
+  line-height: 1.1;
+}
 
-  .left {
-    grid-column: 6 / 12;
-  }
+.left {
+  grid-column: 2 / 10;
+
+}
+
+.right {
+  grid-column: 6 / 12;
+}
