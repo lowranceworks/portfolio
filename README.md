@@ -18,7 +18,11 @@ docker container run -d -p 8080:80 --rm portfolio:1.0.0
 
 ### Hosting the website on Github pages
 
-Follow the [Host using GitHub Pages](https://sbcode.net/threejs/github-pages/) guide
+```
+npm run build
+npm run deploy
+```
+- See the [Host using GitHub Pages](https://sbcode.net/threejs/github-pages/) guide for more details.
 
 ### References
 
