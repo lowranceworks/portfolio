@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+dist-ssr
+*.local
+package-lock.json
+
+composition-example
+deprecated
+composition-approach-with-portfolio-website.md
