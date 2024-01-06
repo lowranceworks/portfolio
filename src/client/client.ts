@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-// scene
+// sc
 const scene = new THREE.Scene();
 
 // camera
@@ -168,6 +168,10 @@ function addStar() {
 Array(600).fill(100).forEach(addStar);
 
 // scroll animation
+let previousScrollTop = document.body.getBoundingClientRect().top;
+let isUserScrolling: boolean = false;
+let scrollTimeoutId: number | undefined;
+
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   const scrollDirection = Math.sign(t - previousScrollTop);
@@ -180,10 +184,15 @@ function moveCamera() {
   camera.position.z = t * -0.019;
   camera.position.x = t * -0.00006;
   camera.rotation.y = t * -0.00006;
-}
 
-// initialize previous scroll top outside the function
-let previousScrollTop = document.body.getBoundingClientRect().top;
+  isUserScrolling = true;
+  if (scrollTimeoutId !== undefined) {
+    clearTimeout(scrollTimeoutId);
+  }
+  scrollTimeoutId = setTimeout(() => {
+    isUserScrolling = false;
+  }, 66) as unknown as number;
+}
 
 document.body.onscroll = moveCamera;
 moveCamera();
@@ -194,6 +203,12 @@ function animate() {
   requestAnimationFrame(animate);
   const delta = clock.getDelta();
 
+  if (!isUserScrolling && window.scrollY === 0) {
+    // Reset cube's rotation when not scrolling and scrollbar is at the top
+    joshCube.rotation.x *= 0.95;
+    joshCube.rotation.y *= 0.95;
+    joshCube.rotation.z *= 0.95;
+  }
   // rotation speed
   const rotationSpeed = 0.1 * delta;
 
