@@ -5,14 +5,14 @@ function render() {
 }
 
 function createSpotlights(scene: THREE.Scene) {
-  var color = 0xffffff;
-  var intensity = 5;
-  var distance = 25;
-  var angle = Math.PI / 7;
+  const color = 0xffffff;
+  const intensity = 5;
+  const distance = 25;
+  const angle = Math.PI / 7;
 
-  new Array(6).fill("").forEach((item, i) => {
-    var spotlight = new THREE.SpotLight(color, intensity, distance, angle);
-    var value = i % 2 === 0 ? 25 : -25;
+  for (let i = 0; i < 6; i++) {
+    const spotlight = new THREE.SpotLight(color, intensity, distance, angle);
+    const value = i % 2 === 0 ? 25 : -25;
 
     spotlight.position.set(
       i < 2 ? value : 0,
@@ -20,7 +20,7 @@ function createSpotlights(scene: THREE.Scene) {
       i >= 4 ? value : 0,
     );
     scene.add(spotlight);
-  });
+  }
 }
 
 function createPlanet(
