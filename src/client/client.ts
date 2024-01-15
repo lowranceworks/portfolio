@@ -114,7 +114,7 @@ function animate() {
   const delta = clock.getDelta();
 
   if (!isUserScrolling && window.scrollY === 0) {
-    // Reset cube's rotation when not scrolling and scrollbar is at the top
+    // reset cube's rotation when not scrolling and scrollbar is at the top
     joshCube.rotation.x *= 0.95;
     joshCube.rotation.y *= 0.95;
     joshCube.rotation.z *= 0.95;
