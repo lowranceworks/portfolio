@@ -1,6 +1,167 @@
 import * as THREE from "three";
 
-// sc
+function render() {
+  renderer.render(scene, camera);
+}
+
+function createSpotlights(scene: THREE.Scene) {
+  var color = 0xffffff;
+  var intensity = 5;
+  var distance = 25;
+  var angle = Math.PI / 7;
+
+  new Array(6).fill("").forEach((item, i) => {
+    var spotlight = new THREE.SpotLight(color, intensity, distance, angle);
+    var value = i % 2 === 0 ? 25 : -25;
+
+    spotlight.position.set(
+      i < 2 ? value : 0,
+      i >= 2 && i < 4 ? value : 0,
+      i >= 4 ? value : 0,
+    );
+    scene.add(spotlight);
+  });
+}
+
+function createPlanet(
+  scene: THREE.Scene,
+  planet: THREE.Mesh,
+  group: THREE.Group,
+  x: number,
+  scale: number,
+): void {
+  planet.position.set(x, 0, 0);
+  planet.scale.setScalar(scale);
+  planet.rotateX(0.3);
+  group.add(planet);
+  scene.add(group);
+}
+
+function createRing(
+  color: THREE.Texture,
+  innerRadius: number,
+  outerRadius: number,
+): THREE.Mesh {
+  const ring = new THREE.RingGeometry(
+    innerRadius,
+    outerRadius,
+    100,
+    8,
+    0,
+    6.283185307179586,
+  );
+  const ringTexture = new THREE.TextureLoader().load("./img/ring-texture.jpg");
+  const meshMaterial = new THREE.MeshStandardMaterial({
+    map: color,
+    normalMap: ringTexture,
+  });
+  const planetRing = new THREE.Mesh(ring, meshMaterial)
+    .rotateY(9.5)
+    .rotateX(-14.4)
+    .rotateZ(8);
+
+  return planetRing;
+}
+
+function createPlanetaryRing(
+  scene: THREE.Scene,
+  ring: THREE.Mesh,
+  group: THREE.Group,
+  x: number,
+) {
+  ring.position.set(x, 0, 0);
+  group.add(ring);
+  scene.add(group);
+}
+
+function addStar() {
+  const geometry = new THREE.SphereGeometry(0.07, 24, 24);
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const star = new THREE.Mesh(geometry, material);
+
+  const [x, y, z] = Array(3)
+    .fill(100)
+    .map(() => THREE.MathUtils.randFloatSpread(200));
+
+  star.position.set(x, y, z);
+  scene.add(star);
+}
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  const scrollDirection = Math.sign(t - previousScrollTop);
+  previousScrollTop = t;
+
+  joshCube.rotation.x += scrollDirection * 0.01;
+  joshCube.rotation.y -= scrollDirection * 0.01;
+  joshCube.rotation.z += scrollDirection * 0.01;
+
+  camera.position.z = t * -0.019;
+  camera.position.x = t * -0.00006;
+  camera.rotation.y = t * -0.00006;
+
+  isUserScrolling = true;
+  if (scrollTimeoutId !== undefined) {
+    clearTimeout(scrollTimeoutId);
+  }
+  scrollTimeoutId = setTimeout(() => {
+    isUserScrolling = false;
+  }, 66) as unknown as number;
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  const delta = clock.getDelta();
+
+  if (!isUserScrolling && window.scrollY === 0) {
+    // Reset cube's rotation when not scrolling and scrollbar is at the top
+    joshCube.rotation.x *= 0.95;
+    joshCube.rotation.y *= 0.95;
+    joshCube.rotation.z *= 0.95;
+  }
+  // rotation speed
+  const rotationSpeed = 0.1 * delta;
+
+  sun.rotateY(rotationSpeed);
+  mercury.rotateY(rotationSpeed);
+  venus.rotateY(rotationSpeed);
+  earth.rotateY(rotationSpeed);
+  mars.rotateY(rotationSpeed);
+  jupiter.rotateY(rotationSpeed);
+  saturn.rotateY(rotationSpeed);
+  uranus.rotateY(rotationSpeed);
+  neptune.rotateY(rotationSpeed);
+  pluto.rotateY(rotationSpeed);
+  saturnRing0.rotateZ(rotationSpeed);
+  saturnRing1.rotateZ(rotationSpeed);
+  saturnRing2.rotateZ(rotationSpeed);
+  saturnRing3.rotateZ(rotationSpeed);
+  saturnRing4.rotateZ(rotationSpeed);
+  uranusRing0.rotateZ(rotationSpeed);
+  uranusRing1.rotateZ(rotationSpeed);
+
+  // orbit speed
+  mercuryOrbit.rotateY(0.5 * delta);
+  venusOrbit.rotateY(0.35 * delta);
+  earthOrbit.rotateY(0.3 * delta);
+  marsOrbit.rotateY(0.2 * delta);
+  jupiterOrbit.rotateY(0.05 * delta);
+  saturnOrbit.rotateY(0.03 * delta);
+  uranusOrbit.rotateY(0.02 * delta);
+  neptuneOrbit.rotateY(0.015 * delta);
+  plutoOrbit.rotateY(0.005 * delta);
+  saturnRingOrbit0.rotateY(0.03 * delta);
+  saturnRingOrbit1.rotateY(0.03 * delta);
+  saturnRingOrbit2.rotateY(0.03 * delta);
+  saturnRingOrbit3.rotateY(0.03 * delta);
+  saturnRingOrbit4.rotateY(0.03 * delta);
+  uranusRingOrbit0.rotateY(0.02 * delta);
+  uranusRingOrbit1.rotateY(0.02 * delta);
+
+  render();
+}
+
+// scene
 const scene = new THREE.Scene();
 
 // camera
@@ -152,177 +313,14 @@ createSpotlights(scene);
 // stars
 Array(600).fill(100).forEach(addStar);
 
-function addStar() {
-  const geometry = new THREE.SphereGeometry(0.07, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  const star = new THREE.Mesh(geometry, material);
-
-  const [x, y, z] = Array(3)
-    .fill(100)
-    .map(() => THREE.MathUtils.randFloatSpread(200));
-
-  star.position.set(x, y, z);
-  scene.add(star);
-}
-
-Array(600).fill(100).forEach(addStar);
-
 // scroll animation
 let previousScrollTop = document.body.getBoundingClientRect().top;
 let isUserScrolling: boolean = false;
 let scrollTimeoutId: number | undefined;
-
-function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
-  const scrollDirection = Math.sign(t - previousScrollTop);
-  previousScrollTop = t;
-
-  joshCube.rotation.x += scrollDirection * 0.01;
-  joshCube.rotation.y -= scrollDirection * 0.01;
-  joshCube.rotation.z += scrollDirection * 0.01;
-
-  camera.position.z = t * -0.019;
-  camera.position.x = t * -0.00006;
-  camera.rotation.y = t * -0.00006;
-
-  isUserScrolling = true;
-  if (scrollTimeoutId !== undefined) {
-    clearTimeout(scrollTimeoutId);
-  }
-  scrollTimeoutId = setTimeout(() => {
-    isUserScrolling = false;
-  }, 66) as unknown as number;
-}
 
 document.body.onscroll = moveCamera;
 moveCamera();
 
 const clock = new THREE.Clock();
 
-function animate() {
-  requestAnimationFrame(animate);
-  const delta = clock.getDelta();
-
-  if (!isUserScrolling && window.scrollY === 0) {
-    // Reset cube's rotation when not scrolling and scrollbar is at the top
-    joshCube.rotation.x *= 0.95;
-    joshCube.rotation.y *= 0.95;
-    joshCube.rotation.z *= 0.95;
-  }
-  // rotation speed
-  const rotationSpeed = 0.1 * delta;
-
-  sun.rotateY(rotationSpeed);
-  mercury.rotateY(rotationSpeed);
-  venus.rotateY(rotationSpeed);
-  earth.rotateY(rotationSpeed);
-  mars.rotateY(rotationSpeed);
-  jupiter.rotateY(rotationSpeed);
-  saturn.rotateY(rotationSpeed);
-  uranus.rotateY(rotationSpeed);
-  neptune.rotateY(rotationSpeed);
-  pluto.rotateY(rotationSpeed);
-  saturnRing0.rotateZ(rotationSpeed);
-  saturnRing1.rotateZ(rotationSpeed);
-  saturnRing2.rotateZ(rotationSpeed);
-  saturnRing3.rotateZ(rotationSpeed);
-  saturnRing4.rotateZ(rotationSpeed);
-  uranusRing0.rotateZ(rotationSpeed);
-  uranusRing1.rotateZ(rotationSpeed);
-
-  // orbit speed
-  mercuryOrbit.rotateY(0.5 * delta);
-  venusOrbit.rotateY(0.35 * delta);
-  earthOrbit.rotateY(0.3 * delta);
-  marsOrbit.rotateY(0.2 * delta);
-  jupiterOrbit.rotateY(0.05 * delta);
-  saturnOrbit.rotateY(0.03 * delta);
-  uranusOrbit.rotateY(0.02 * delta);
-  neptuneOrbit.rotateY(0.015 * delta);
-  plutoOrbit.rotateY(0.005 * delta);
-  saturnRingOrbit0.rotateY(0.03 * delta);
-  saturnRingOrbit1.rotateY(0.03 * delta);
-  saturnRingOrbit2.rotateY(0.03 * delta);
-  saturnRingOrbit3.rotateY(0.03 * delta);
-  saturnRingOrbit4.rotateY(0.03 * delta);
-  uranusRingOrbit0.rotateY(0.02 * delta);
-  uranusRingOrbit1.rotateY(0.02 * delta);
-
-  render();
-}
-
 animate();
-
-function render() {
-  renderer.render(scene, camera);
-}
-
-function createSpotlights(scene: THREE.Scene) {
-  var color = 0xffffff;
-  var intensity = 5;
-  var distance = 25;
-  var angle = Math.PI / 7;
-
-  new Array(6).fill("").forEach((item, i) => {
-    var spotlight = new THREE.SpotLight(color, intensity, distance, angle);
-    var value = i % 2 === 0 ? 25 : -25;
-
-    spotlight.position.set(
-      i < 2 ? value : 0,
-      i >= 2 && i < 4 ? value : 0,
-      i >= 4 ? value : 0,
-    );
-    scene.add(spotlight);
-  });
-}
-
-function createPlanet(
-  scene: THREE.Scene,
-  planet: THREE.Mesh,
-  group: THREE.Group,
-  x: number,
-  scale: number,
-): void {
-  planet.position.set(x, 0, 0);
-  planet.scale.setScalar(scale);
-  planet.rotateX(0.3);
-  group.add(planet);
-  scene.add(group);
-}
-
-function createRing(
-  color: THREE.Texture,
-  innerRadius: number,
-  outerRadius: number,
-): THREE.Mesh {
-  const ring = new THREE.RingGeometry(
-    innerRadius,
-    outerRadius,
-    100,
-    8,
-    0,
-    6.283185307179586,
-  );
-  const ringTexture = new THREE.TextureLoader().load("./img/ring-texture.jpg");
-  const meshMaterial = new THREE.MeshStandardMaterial({
-    map: color,
-    normalMap: ringTexture,
-  });
-  const planetRing = new THREE.Mesh(ring, meshMaterial)
-    .rotateY(9.5)
-    .rotateX(-14.4)
-    .rotateZ(8);
-
-  return planetRing;
-}
-
-function createPlanetaryRing(
-  scene: THREE.Scene,
-  ring: THREE.Mesh,
-  group: THREE.Group,
-  x: number,
-) {
-  ring.position.set(x, 0, 0);
-  group.add(ring);
-  scene.add(group);
-}
