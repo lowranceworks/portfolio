@@ -1,303 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Josh's Website</title>
-</head>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joshua's Website</title>
+  </head>
 
-<body>
+  <body>
+    <canvas id="bg"></canvas>
+    <main>
+      <!-- header section-->
+      <header id="header">
+        <h1>Joshua Lowrance</h1>
+        <p>🌎 Welcome to my portfolio website!</p>
+      </header>
 
-  <canvas id="bg"></canvas>
+      <!-- about me section-->
+      <section id="about-me">
+        <h2>📜 About Me</h2>
+        <p>
+          Seasoned DevOps Engineer with over five years of expertise in streamlining and automating deployment processes
+          across AWS and GCP environments. Demonstrated ability in leveraging advanced DevOps tools and methodologies to enhance
+          operational efficiency and deployment velocity. Passionate about learning new technologies and sharing knowledge with others.
+        </p>
+        <p>
+          Key competencies include:
+        </p>
+        <ul>
+          <li>Orchestrating containerized applications with Kubernetes.</li>
+          <li>Implementing infrastructure as code using Terraform and Crossplane.</li>
+          <li>Designing robust CI/CD pipelines with a focus on efficiency and scalability.</li>
+        </ul>
+        <p>
+          Skilled in integrating a variety of modern DevOps technologies, including ArgoCD and Github Actions,
+          to support continuous integration and delivery in dynamic cloud ecosystems. Committed to driving innovation
+          through automation and delivering solutions in fast-paced environments.
+      </section>
 
-  <main>
+      <!-- skills and certifications section -->
+      <section class="right" id="skills-and-certifications">
+        <div class="max-width">
+          <h2 class="title">💻 Technical skills</h2>
+          <div class="skills-content">
+            <div class="column left">
+              <p>
+                <b>
+                  ArgoCD |
+                  Github Actions |
+                  Jenkins |
+                  Kubernetes |
+                  Helm |
+                  Kustomize |
+                  Docker |
+                  AWS |
+                  GCP |
+                  Terraform |
+                  Crossplane |
+                  Ansible |
+                  Git |
+                  Python |
+                  Golang |
+                </b>
+              </p>
+            </div>
 
-    <header id="header">
-      <h1>Josh Lowrance</h1>
-      <p>🌎 Welcome to my portfolio website!</p>
-    </header>
+            <h2>🏆 Certifications</h2>
+            <b>AWS Certified Solutions Architect - Associate</b>
+            <ul>
+              <li><a href="https://www.credly.com/badges/60b42b8a-8774-4ab4-922b-33d099ba87cf">show credential</a></li>
+            </ul>
+            <br>
+      </section>
 
-    <blockquote>
-      <p>Life-long learner dedicated to technology</p>
-    </blockquote>
+      <!-- work history section -->
+      <section class="left" id="work-history">
+        <h2>👷‍♂️ Work History</h2>
+        <h3>Devops Engineer - Avaya </h3>
+        <p>
+          <ul>
+            <li>Developed a platform empowering users to create or update firewall rules in both GCP and AWS.</li>
+            <li>Established Infrastructure as Code in GCP and AWS using Terraform/Crossplane.</li>
+            <li>Implemented CI/CD with Github Actions and ArgoCD.</li>
+          </ul>
+        </p>
 
-    <!-- about me -->
-    <section id="about me">
-      <h2>📜 About me</h2>
-      <p>
-        DevOps Engineer with 4+ years of hands-on experience automating and optimizing deployments in AWS and GCP.
-        Proficient with Kubernetes, Terraform, Ansible, Github Actions, ArgoCD and developing CI/CD.
-      </p>
-    </section>
+        <h3>DevOps Engineer - CTIntegrations</h3>
+        <p>
+          <ul>
+            <li>Created Terraform-managed Infrastructure as Code for AWS.</li>
+            <li>Led a successful initiative to containerize applications, enhancing portability and deployment efficiency.</li>
+            <li>Developed 12 Jenkins CI pipelines for automated Docker image and MSI installer creation.</li>
+            <li>Designed and deployed a comprehensive monitoring and alerting system.</li>
+          </ul>
+        </p>
 
+        <h3>Cloud Support Engineer - Amazon</h3>
+        <p>
+          <ul>
+            <li>Created 10+ Ansible playbooks/roles to automate configuration and troubleshooting for Amazon Lockers.</li>
+            <li>Supported engineers by developing Infrastructure as Code for software projects on AWS using Terraform.</li>
+            <li>Contributed to various projects written in Python and TypeScript.</li>
+            <li>Developed tools for engineers using Python/PowerShell to automate routine tasks.</li>
+          </ul>
+        </p>
 
-    <!-- skills and certifications section -->
-    <section class="right" id="skills-and-certifications">
-      <div class="max-width">
-        <h2 class="title">💻 Technical skills</h2>
-        <div class="skills-content">
-          <div class="column left">
-            <p>
-              <b>
-                AWS |
-                GCP |
-                Kubernetes |
-                Terraform |
-                Github Actions |
-                ArgoCD |
-                Ansible |
-                Docker |
-                Helm |
-                Git |
-                Python |
-                Golang
-              </b>
-            </p>
-          </div>
+        <h3>Systems Administrator - HealthTronics</h3>
+        <p>
+          <ul>
+            <li>Supported engineers by maintaining both Linux and Windows servers with Ansible playbooks/roles.</li>
+            <li>Developed Python scripts to automate tasks involving APIs from various software services.</li>
+          </ul>
+        </p>
 
-          <h2>🏆 Certifications</h2>
-          <b>AWS Certified Solutions Achitect - Associate</b>
-          <br>
-          <a href="https://www.credly.com/badges/60b42b8a-8774-4ab4-922b-33d099ba87cf">Show credential</a>
-    </section>
+        <h3>Support Engineer - Arrive Logistics</h3>
+        <p>
+          <ul>
+            <li>Automated 90% of tasks related to on-boarding/off-boarding employees with Python and PowerShell.</li>
+            <li>Created 10+ Ansible playbooks/roles to maintain Windows servers for helpdesk and software engineers.</li>
+            <li>Developed 15+ scripts written in Python/PowerShell to automate routine and reduce time troubleshooting.</li>
+          </ul>
+        </p>
+      </section>
 
+      <!-- recommendations section -->
+      <section class="right" id="recommendations">
+        <h2>🤔 Recommendations</h2>
+        <p>
+          <b>Paula Morton · Digital Strategy Director at Avaya</b>
+        </p>
+        Josh was a great asset to his team during the time we worked together at CTIntegrations and Avaya. Navigating unfamiliar 
+        territory and finding our own way, Josh was able to successfully deploy resources in GCP, using a variety of both familiar
+        and new dev deployment technologies. It's clear he has a real passion for forward thinking best practices in DevOps and 
+        was a thought leader on the team, when it came to how we would evolve our technology to true CI/CD processes and tech.
+        When faced with a challenge or problem to solve, Josh doesn't back down or give up easily, and stays focused on the prize
+        until he is successful. He is a real team player that his peers can count on to deliver.
+        <p>
+        </p>
 
-    <!-- work history section -->
-    <section class="left" id="work-history">
-      <h2>👷‍♂️ Work History</h2>
-      <h3>Devops Engineer - Avaya </h3>
-      <p>
-      <ul>
-        <li>Established continuous deployment using Ansible and Helm, reducing software delivery times by 60%</li>
-        <li>Developed and maintained production-ready Infrastructure as Code for GCP using Terraform</li>
-        <li>Automated Blue-Green deployment and Canary Tests using Terraform, Ansible and Jenkins</li>
-      </ul>
-      </p>
+        <p>
+          <b>Ronny Flaatten · Chief Technical Officer at CTIntegrations</b>
+        </p>
+        <p>
+          Josh is an incredibly talented engineer, the speed at which he not only learns but master new technologies is
+          impressive. His work ethic is outstanding, and he always delivers! We were in a transformation as a software
+          company and required the team to wear many hats and be able to adapt to new technologies quickly; Josh was an
+          essential part of this transformation, and he never wavered.
+        </p>
 
-      <h3>DevOps Engineer - CTIntegrations</h3>
-      <p>
-      <ul>
-        <li>Developed and maintained production-ready Infrastructure as Code for AWS using Terraform</li>
-        <li>Established 12 continuous integration pipelines, automating the creation of docker images and MSI installers
-          using Jenkins</li>
-        <li>Created monitoring & alerting solutions using a combination of CloudWatch, Lambda, SNS, OpsGenie and
-          StatusPage</li>
-      </ul>
-      </p>
+        <p>
+          <b>Jeff Hunt · Engineering Manager at Arrive Logistics</b>
+        </p>
+        <p>
+          I can't say enough good things about Josh. He's driven, positive and committed. He brightens up a room when he
+          walks in and stays focused approaching any situation or problem. He keeps an open mind when troubleshooting and
+          tries to look at things from different angles when stuck, which leads to unique and inventive solutions. It was
+          an absolute pleasure working with Josh and any company would be improved having him on their payroll.
+        </p>
+      </section>
 
-      <h3>Cloud Support Engineer - Amazon</h3>
-      <p>
-      <ul>
-        <li>Created 10+ Ansible playbooks/roles to automate configuration and troubleshooting for Amazon Lockers</li>
-        <li>Supported engineers by developing Infrastructure as Code for software projects on AWS using Terraform</li>
-        <li>Contributed to software projects written in Python and TypeScript</li>
-        <li>Developed CLI tools for engineers using Python/PowerShell to automate routine tasks and reduce
-          troubleshooting times</li>
-      </ul>
-      </p>
+      <!-- projects section -->
+      <section class="left" id="projects">
+        <h2>👨‍💻 Projects</h2>
 
-      <h3>Systems Administrator - HealthTronics</h3>
-      <p>
-      <ul>
-        <li>Supported engineers by maintaining both Linux and Windows servers with Ansible playbooks/roles</li>
-        <li>Developed Python scripts to automate tasks involving APIs from various software services</li>
-        <li>Created scripts written in Python/PowerShell to automate routine tasks and reduce time troubleshooting</li>
-      </ul>
-      </p>
+        <h3>MacBook configuration (backup/restore) with Ansible</h3>
+        <p>
+          Easily backup/restore various software/os configurations on your MacBook using Ansible.
+          <ul>
+            <li><a href="https://github.com/lowranceworks/macbook-config">lowranceworks/macbook-config</a></li>
+          </ul>
+        </p>
 
-      <h3>Support Engineer - Arrive Logistics</h3>
-      <p>
-      <ul>
-        <li>Automated 90% of tasks related to on-boarding/off-boarding employees using Python & PowerShell scripts</li>
-        <li>Created 10+ Ansible playbooks/roles to maintain Windows servers for helpdesk and software engineers</li>
-        <li>Developed 15+ scripts written in Python & PowerShell for technicians to automate routine
-          tasks and reduce time troubleshooting</li>
-      </ul>
-      </p>
-    </section>
+        <h3>Portfolio website</h3>
+        <p>
+          A 3D portfolio website written with Typescript, CSS and HTML.
+          <ul>
+            <li><a href="https://github.com/lowranceworks/portfolio">lowranceworks/portfolio</a></li>
+          </ul>
+        </p>
 
-    <!-- recommendations section -->
-    <section class="right" id="recommendations">
-      <h2>🤔 Recommendations</h2>
+        <h3>Terraform Github management</h3>
+        <p>
+          Terraform configuration that allows me to update any of my repositories in Github.
+          <ul>
+            <li><a href="https://github.com/lowranceworks/terraform-github-management">lowranceworks/terraform-github-management</a></li>
+        </p>
+      </section>
 
-      <p>
-        <b>Ronny Flaatten · CTIntegrations Founder</b>
-      </p>
-      <p>
-        Josh is an incredibly talented engineer, the speed at which he not only learns but master new technologies is
-        impressive. His work ethic is outstanding, and he always delivers! We were in a transformation as a software
-        company and required the team to wear many hats and be able to adapt to new technologies quickly; Josh was an
-        essential part of this transformation, and he never wavered.
-      </p>
-
-
-      <p>
-        <b>Jeff Hunt · Director of IT at Quik!</b>
-      </p>
-      <p>
-        I can't say enough good things about Josh. He's driven, positive and committed. He brightens up a room when he
-        walks in and stays focused approaching any situation or problem. He keeps an open mind when troubleshooting and
-        tries to look at things from different angles when stuck, which leads to unique and inventive solutions. It was
-        an absolute pleasure working with Josh and any company would be improved having him on their payroll.
-      </p>
-    </section>
-
-    <!-- projects section -->
-    <section class="left" id="projects">
-      <h2>👨‍💻 Projects</h2>
-      <h3>Linux workstation configuration with Ansible</h3>
-      <p>
-        I've created an Ansible playbook that configures a new installation of Linux desktop (Debian/Ubuntu or
-        Fedora). This playbook configures system services, Gnome desktop settings, aliases, software, themes, and more!
-      <dl>This project can be found on Github:
-        <a href="https://github.com/lowranceworks/config">lowranceworks/config</a>
-      </dl>
-      </p>
-
-      <h3>Portfolio website</h3>
-      <p>
-        A 3D portfolio website written with Typescript, CSS and HTML. Currently hosted on Github pages.
-      <dl>This project can be found on Github:
-        <a href="https://github.com/lowranceworks/portfolio">lowranceworks/portfolio</a>
-      </dl>
-      </p>
-    </section>
-
-    <!-- special thanks section -->
-    <section class="special-thanks" id="special-thanks">
-      <h2>🎖️ Special thanks</h2>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/darrell-lowrance-7825797/">Darrell Lowrance</a>
-          <dd>Father & Mentor</dd>
-          <dd>Cloud Architect</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/reza-esfandyari-91588615/)">Reza Esfandyari</a>
-          <dd>Mentor from October 2019 to April 2020</dd>
-          <dd>Software & Cloud Architect</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/stevieb/)">Steve Bennett</a>
-          <dd>Mentor from September 2020 to April 2021</dd>
-          <dd>Software Development Manager</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/tim-ruscica/)">Tim Ruscica</a>
-          <dd>Web Development content creator</dd>
-          <dd>Founder of TechWithTim</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/bretefisher/">Bret Fisher</a>
-          <dd>DevOps engineering content creator</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/nana-janashia/">Nana Janashia</a>
-          <dd>DevOps engineering content creator</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/stephengrider)">Stephen Grider</a>
-          <dd>DevOps engineering content creator</dd>
-          <dd>Web Development content creator</dd>
-          <dd>Engineering Architect & Udemy Instructor Partner</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/jonbonso/)">Jon Bonso</a>
-          <dd>Lead Developer & Technical Co-Founder of Tutorials Dojo</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://acloudguru.com/)">Ryan Kroonenburg</a>
-          <dd>Founder of ACloudGuru</dd>
-          <dd>DevOps engineering content creator </dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/jeff-geerling-086bb2a/">Jeff Geerling</a>
-          <dd>Author and software developer</dd>
-          <dd>DevOps engineering content creator </dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.youtube.com/c/DevOpsToolkit)">Viktor Farcic</a>
-          <dd>Founder of DevOps toolkit</dd>
-          <dd>DevOps engineering content creator </dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.ybrikman.com/)">Yevgeniy (Jim) Brikman</a>
-          <dd>Co-founder of Gruntwork</dd>
-          <dd>DevOps engineering content creator </dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)">Brad Traversy</a>
-          <dd>Founder of Traversy Media</dd>
-          <dd>Web Development content creator </dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://www.linkedin.com/in/jeff-delaney/">Jeff Delaney</a>
-          <dd>Content creator</dd>
-          <dd>Founder and creator of fireship.io</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://twitter.com/doronlinder?lang=en)">Doron Linder</a>
-          <dd>Creator of vim-adventures</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl>
-          <dt><a href="https://www.linkedin.com/in/linustorvalds/">Linus Torvalds</a></dt>
-          <dd>Main Linux kernel developer since 1991, still active maintainer</dd>
-          <dd>Original architect and author of the Git source control management system</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://ianmurdock.debian.net/weblog.html">Ian Murdock</a>
-          <dd>Founder of Debian project</dd>
-        </dl>
-      </li>
-
-      <li>
-        <dl><a href="https://twitter.com/doronlinder?lang=en)">Takuya Matsuyama</a>
-          <dd>Independent developer and founder of Inkdrop</dd>
-        </dl>
-      </li>
-
-    </section>
-  </main>
-
-
-  <script type="module" src="bundle.js"></script>
-</body>
-
+    </main>
+    <script type="module" src="bundle.js"></script>
+  </body>
 </html>
