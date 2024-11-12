@@ -227,7 +227,7 @@ scene.background = spaceTexture;
 // profile cube
 const joshCube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), joshMaterial);
 scene.add(joshCube);
-joshCube.position.z = -4.9;
+joshCube.position.z = -4.2;
 joshCube.position.x = 1.27;
 
 // sun
