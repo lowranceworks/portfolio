@@ -369,9 +369,11 @@ a:hover {
   line-height: 1.6;
   margin-bottom: 2rem;
 }
+
 /* Projects Section */
 #projects {
   margin-top: 3in;
+  grid-column: 4 / 10; /* Changed from 6 / 10 to move it left */
 }
 
 #projects h2 {
