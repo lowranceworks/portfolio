@@ -260,14 +260,25 @@ a:hover {
 
 /* Section specific styles */
 
-#header h1 {
-  font-size: 4rem; /* Makes the name larger */
-  margin-bottom: 1rem; /* Space between name and welcome message */
-}
+#header {
+  background: var(--color-dark-bg);
+  background-color: var(--color-overlay);
+  opacity: 0.8;
+  grid-column: 3 / span 4;
+  font-size: 2.5rem;
+  padding: 1rem;
+  margin-bottom: var(--spacing-section);
+  margin-top: 3in; /* Add spacing from top */
 
-#header p {
-  margin-top: 0.1in;
-  font-size: 2rem; /* Makes the welcome message larger */
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-top: 0.1in;
+    font-size: 2rem;
+  }
 }
 
 #about-me {
