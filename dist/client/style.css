@@ -409,6 +409,7 @@ a:hover {
 /* Interests Section */
 #interests {
   margin-top: 3in;
+  grid-column: 4 / 6;
 }
 
 #interests h2 {
