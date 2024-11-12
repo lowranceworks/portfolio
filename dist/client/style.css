@@ -358,7 +358,6 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/* This will target all text in recommendations, even if not in p tags */
 #recommendations {
   font-size: 1.25rem;
   line-height: 1.6;
@@ -373,7 +372,7 @@ a:hover {
 /* Projects Section */
 #projects {
   margin-top: 3in;
-  grid-column: 4 / 10; /* Changed from 6 / 10 to move it left */
+  grid-column: 4 / 10;
 }
 
 #projects h2 {
