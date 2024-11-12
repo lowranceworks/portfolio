@@ -92,13 +92,20 @@ function moveCamera() {
   const scrollDirection = Math.sign(t - previousScrollTop);
   previousScrollTop = t;
 
-  joshCube.rotation.x += scrollDirection * 0.01;
-  joshCube.rotation.y -= scrollDirection * 0.01;
-  joshCube.rotation.z += scrollDirection * 0.01;
+  // Replace cube rotation with sprite scaling and rotation
+  joshSprite.scale.x += scrollDirection * 0.03;
+  joshSprite.scale.y += scrollDirection * 0.03;
+  joshSprite.material.rotation += scrollDirection * 0.1;
 
-  camera.position.z = t * -0.019;
+  camera.position.z = t * -0.03;
   camera.position.x = t * -0.00006;
   camera.rotation.y = t * -0.00006;
+
+  joshSprite.position.set(
+    camera.position.x + 1.27,
+    camera.position.y + 0.75,
+    camera.position.z - 4.2 + t * -0.02,
+  );
 
   isUserScrolling = true;
   if (scrollTimeoutId !== undefined) {
@@ -114,11 +121,11 @@ function animate() {
   const delta = clock.getDelta();
 
   if (!isUserScrolling && window.scrollY === 0) {
-    // reset cube's rotation when not scrolling and scrollbar is at the top
-    joshCube.rotation.x *= 0.95;
-    joshCube.rotation.y *= 0.95;
-    joshCube.rotation.z *= 0.95;
+    joshSprite.scale.x += (2 - joshSprite.scale.x) * 0.1;
+    joshSprite.scale.y += (2 - joshSprite.scale.y) * 0.1;
+    joshSprite.material.rotation *= 0.9;
   }
+
   // rotation speed
   const rotationSpeed = 0.1 * delta;
 
@@ -224,12 +231,31 @@ const plutoMaterial = new THREE.MeshStandardMaterial({ map: plutoTexture });
 
 scene.background = spaceTexture;
 
-// profile cube
-const joshCube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), joshMaterial);
-scene.add(joshCube);
-joshCube.position.z = -4.2;
-joshCube.position.x = 1.27;
-joshCube.position.y = 0.75;
+// Initialize the sprite with proper scale
+const joshSprite = new THREE.Sprite(
+  new THREE.SpriteMaterial({
+    map: joshTexture,
+    sizeAttenuation: true,
+    rotation: 0,
+  }),
+);
+scene.add(joshSprite);
+joshSprite.scale.set(2, 2, 1);
+joshSprite.position.set(
+  camera.position.x + 1.27,
+  camera.position.y + 0.75,
+  camera.position.z - 4.2,
+);
+
+// Optional: Add some initial rotation to match the cube's orientation
+joshSprite.material.rotation = Math.PI * 0.1; // Adjust this value to match your preference
+
+// Position relative to camera
+joshSprite.position.set(
+  camera.position.x + 1.27,
+  camera.position.y + 0.75,
+  camera.position.z - 4.2,
+);
 
 // sun
 const sphere = new THREE.SphereGeometry(1, 100, 50);
