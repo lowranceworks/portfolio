@@ -1,33 +1,40 @@
+/* Import fonts */
 @import url("https://use.typekit.net/jmk3xov.css");
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
+/* Custom properties */
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
   --spacing: 350px;
-
+  --header-spacing: 0.2in;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-main {
-  width: 100vw;
-  color: white;
-  z-index: 99;
-  position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+/* Base styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  color: white;
+  overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Typography */
 h1,
 h2,
 h3,
@@ -38,50 +45,433 @@ blockquote p {
   font-style: normal;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+h2 {
+  margin-top: var(--header-spacing);
+  margin-bottom: var(--header-spacing);
 }
 
+/* Layout */
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Section styles */
 header {
   background: var(--dark-bg);
-  background-color: rgba(0, 0, 0, 0.6);
-  grid-column: 2 / span 5;
+  background-color: var(--overlay-bg);
+  grid-column: 3 / span 7;
   font-size: 2.5rem;
-  padding: 2rem;
+  padding: 1rem;
   margin-bottom: var(--spacing);
 }
 
 section {
-  grid-column: 2 / 8;
-  padding: 1rem;
+  grid-column: 4 / 8;
+  padding: 2rem;
   background: var(--dark-bg);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-bg);
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: var(--spacing);
 }
 
+/* Blockquote styles */
 blockquote {
   margin: 0;
   padding: 0;
-  grid-column: 2 / span 9;
+  grid-column: 4 / span 9;
   margin-bottom: var(--spacing);
 }
 
 blockquote p {
   color: white;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-bg);
   font-size: 4rem;
   display: inline;
   line-height: 1.1;
 }
 
+/* Grid positioning utilities */
 .left {
-  grid-column: 2 / 10;
+  grid-column: 3 / 10;
 }
 
 .right {
-  grid-column: 6 / 12;
+  grid-column: 6 / 10;
+}
+
+/* Links */
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Lists */
+ul {
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .left,
+  .right {
+    grid-column: 2 / 12;
+  }
+
+  section {
+    grid-column: 2 / 12;
+  }
+
+  header {
+    grid-column: 2 / 12;
+  }
+}
+
+@media (max-width: 480px) {
+  section,
+  header {
+    padding: 1rem;
+  }
+
+  :root {
+    --header-spacing: 4in;
+  }
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+blockquote,
+blockquote p {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+/* Layout */
+main {
+  position: relative;
+  z-index: 2;
+  width: min(100%, var(--section-width));
+  margin-inline: auto;
+  padding: var(--container-padding) var(--spacing-base);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-base);
+}
+
+/* Section styles */
+.section-container {
+  background: var(--color-overlay);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-section);
+}
+
+header {
+  grid-column: 3 / span 8;
+}
+
+section {
+  grid-column: 3 / span 8;
+}
+
+/* Grid positioning utilities */
+.left {
+  grid-column: 3 / span 7;
+}
+
+.right {
+  grid-column: 6 / span 4;
+}
+
+/* Content styling */
+ul {
+  list-style-position: inside;
+  padding-left: var(--spacing-base);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Section specific styles */
+
+#header h1 {
+  font-size: 4rem; /* Makes the name larger */
+  margin-bottom: 1rem; /* Space between name and welcome message */
+}
+
+#header p {
+  margin-top: 0.1in;
+  font-size: 2rem; /* Makes the welcome message larger */
+}
+
+#about-me {
+  margin-top: 4in;
+}
+
+#about-me p {
+  font-size: 1.5rem; /* Makes the paragraph text larger */
+  line-height: 1.6; /* Adds better spacing between lines for readability */
+}
+
+#skills h3 {
+  margin-top: var(--spacing-lg);
+}
+
+#skills p {
+  font-size: 1.5rem;
+  line-height: 3;
+}
+
+#work-history {
+  margin-top: 3in; /* Space above the section */
+}
+
+#work-history h2 {
+  font-size: 3rem; /* Section title "Work History" */
+  margin-bottom: 2rem; /* Space below the main heading */
+}
+
+#work-history h3 {
+  font-size: 2rem; /* Company/position titles */
+  color: #fff; /* Bright white for company names */
+  margin-top: 2rem; /* Space above each job */
+  margin-bottom: 1rem; /* Space below each job title */
+}
+
+#work-history ul {
+  margin-left: 1rem; /* Indent the list */
+  margin-bottom: 2rem; /* Space after each job's bullet points */
+}
+
+#work-history li {
+  font-size: 1.25rem; /* Bullet point text size */
+  line-height: 1.6; /* Space between lines */
+  margin-bottom: 1rem; /* Space between bullet points */
+  list-style-type: disc; /* Solid bullet points */
+}
+
+#certifications h2 {
+  font-size: 3rem; /* Makes the "Certifications" title larger */
+  margin-bottom: 2rem;
+}
+
+#certifications b {
+  /* Targets the AWS certification title */
+  font-size: 1.75rem;
+  display: block; /* Makes it appear on its own line */
+  margin-bottom: 1rem;
+}
+
+#certifications a {
+  /* "show credential" link */
+  font-size: 1.5rem;
+  color: #64b5f6; /* Light blue color */
+  text-decoration: none;
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+#certifications a:hover {
+  opacity: 0.8;
+}
+
+#recommendations {
+  margin-top: 3in;
+}
+
+#recommendations h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+#recommendations b {
+  /* Names and titles */
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* This will target all text in recommendations, even if not in p tags */
+#recommendations {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+#recommendations p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+/* Projects Section */
+#projects {
+  margin-top: 3in;
+}
+
+#projects h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+#projects h3 {
+  /* Project titles */
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+#projects p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#projects a {
+  font-size: 1.25rem;
+  color: #64b5f6;
+  text-decoration: none;
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+#projects a:hover {
+  opacity: 0.8;
+}
+
+/* Interests Section */
+#interests {
+  margin-top: 3in;
+}
+
+#interests h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+#interests h4 {
+  /* Interest items */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Add some spacing between each project and recommendation */
+.project,
+.recommendation {
+  margin-bottom: 3rem;
+}
+
+/* Add hover effect to project links */
+.project a:hover {
+  border-bottom-color: #90caf9; /* Lighter blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .left,
+  .right,
+  section,
+  header {
+    grid-column: 2 / span 10;
+  }
+
+  :root {
+    --spacing-section: clamp(3rem, 6vw, 250px);
+  }
+}
+
+@media (max-width: 480px) {
+  .left,
+  .right,
+  section,
+  header {
+    grid-column: 1 / -1;
+  }
+
+  .section-container {
+    padding: var(--spacing-base);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.5s ease-out forwards;
 }
