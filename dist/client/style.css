@@ -279,8 +279,21 @@ a:hover {
   line-height: 1.6; /* Adds better spacing between lines for readability */
 }
 
-#skills h3 {
-  margin-top: var(--spacing-lg);
+#skills {
+  .skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .skill-badges img {
+    height: 30px;
+  }
+
+  h3 {
+    margin-top: 2rem;
+  }
 }
 
 #skills p {
