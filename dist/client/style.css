@@ -262,13 +262,12 @@ a:hover {
 
 #header {
   background: var(--color-dark-bg);
-  background-color: var(--color-overlay);
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.7);
   grid-column: 3 / span 4;
   font-size: 2.5rem;
   padding: 1rem;
   margin-bottom: var(--spacing-section);
-  margin-top: 3in; /* Add spacing from top */
+  margin-top: 2in; /* Add spacing from top */
 
   h1 {
     font-size: 4rem;
