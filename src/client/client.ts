@@ -225,10 +225,10 @@ const plutoMaterial = new THREE.MeshStandardMaterial({ map: plutoTexture });
 scene.background = spaceTexture;
 
 // profile cube
-const joshCube = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), joshMaterial);
+const joshCube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), joshMaterial);
 scene.add(joshCube);
 joshCube.position.z = -4.9;
-joshCube.position.x = 1.57;
+joshCube.position.x = 1.27;
 
 // sun
 const sphere = new THREE.SphereGeometry(1, 100, 50);
