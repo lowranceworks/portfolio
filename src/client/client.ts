@@ -201,7 +201,7 @@ function onWindowResize() {
 const loader = new THREE.TextureLoader();
 
 const spaceTexture = loader.load("./img/space.jpg");
-const joshTexture = loader.load("./img/josh.png");
+const joshTexture = loader.load("./img/josh.jpeg");
 const sunTexture = loader.load("img/sun.jpg");
 const mercuryTexture = loader.load("img/mercury.jpg");
 const venusTexture = loader.load("img/venus.jpg");
