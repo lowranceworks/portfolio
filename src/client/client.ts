@@ -75,15 +75,34 @@ function createPlanetaryRing(
 }
 
 function addStar() {
-  const geometry = new THREE.SphereGeometry(0.07, 24, 24);
+  const geometry = new THREE.SphereGeometry(0.1, 24, 24);
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
   const star = new THREE.Mesh(geometry, material);
 
   const [x, y, z] = Array(3)
     .fill(100)
-    .map(() => THREE.MathUtils.randFloatSpread(200));
+    .map(() => {
+      const spread = THREE.MathUtils.randFloatSpread(400);
+      return spread + (Math.random() - 0.5) * 100;
+    });
 
-  star.position.set(x, y, z);
+  star.position.set(x, y - Math.abs(z) * 0.2, z);
+  scene.add(star);
+}
+
+function addSmallStar() {
+  const geometry = new THREE.SphereGeometry(0.03, 12, 12);
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const star = new THREE.Mesh(geometry, material);
+
+  const [x, y, z] = Array(3)
+    .fill(100)
+    .map(() => {
+      const spread = THREE.MathUtils.randFloatSpread(600);
+      return spread + (Math.random() - 0.5) * 150;
+    });
+
+  star.position.set(x, y - Math.abs(z) * 0.2, z);
   scene.add(star);
 }
 
@@ -338,7 +357,10 @@ scene.add(light);
 createSpotlights(scene);
 
 // stars
-Array(600).fill(100).forEach(addStar);
+Array(2000).fill(100).forEach(addStar); // Increased from 600
+
+// smaller background stars
+Array(1500).fill(100).forEach(addSmallStar);
 
 // scroll animation
 let previousScrollTop = document.body.getBoundingClientRect().top;
