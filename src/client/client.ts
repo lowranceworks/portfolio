@@ -102,7 +102,7 @@ function moveCamera() {
   camera.rotation.y = t * -0.00006;
 
   joshSprite.position.set(
-    camera.position.x + 1.27,
+    camera.position.x + 1.47,
     camera.position.y + 0.75,
     camera.position.z - 4.2 + t * -0.02,
   );
