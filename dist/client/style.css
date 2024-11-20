@@ -1,87 +1,205 @@
-@import url("https://use.typekit.net/jmk3xov.css");
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-:root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 350px;
-
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-main {
-  width: 100vw;
-  color: white;
-  z-index: 99;
-  position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-
-h1,
-h2,
-h3,
-blockquote,
-blockquote p {
-  font-family: Arial, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-header {
-  background: var(--dark-bg);
-  background-color: rgba(0, 0, 0, 0.6);
-  grid-column: 2 / span 5;
-  font-size: 2.5rem;
-  padding: 2rem;
-  margin-bottom: var(--spacing);
-}
-
-section {
-  grid-column: 2 / 8;
-  padding: 1rem;
-  background: var(--dark-bg);
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: var(--spacing);
-}
-
-blockquote {
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  grid-column: 2 / span 9;
-  margin-bottom: var(--spacing);
+  box-sizing: border-box;
 }
 
-blockquote p {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: 4rem;
-  display: inline;
-  line-height: 1.1;
+/* Custom properties */
+:root {
+  --color-text: hsl(0, 0%, 100%);
+  --section-spacing: clamp(200px, 15vh, 150px);
+  --content-width: min(900px, 90vw);
+  --reduced-width: min(900px, 70vw);
+  --section-bg: rgba(0, 0, 0, 0.75);
+  --font-size-base: 1rem; /* Base font size for body text */
 }
 
+/* Base styles */
+body {
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: transparent;
+  font-size: var(--font-size-base);
+}
+
+/* Canvas positioning */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Main content */
+main {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 4rem;
+}
+
+/* Standard section styling */
+section {
+  margin: var(--section-spacing) auto;
+  width: var(--content-width);
+  padding: 1rem;
+  background: var(--section-bg);
+  backdrop-filter: blur(1px);
+  border-radius: 8px;
+}
+
+/* Reduced width sections */
+#header,
+#projects,
+#interests {
+  width: var(--reduced-width);
+  max-width: 800px;
+  margin-left: calc((100% - var(--content-width)) / 2);
+  margin-right: auto;
+}
+
+/* Header section */
+#header {
+  min-height: auto;
+  margin-top: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Typography */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+/* Unified font sizes */
+p,
+li,
+ul,
+#skills-and-certifications b,
+#certifications,
+#skills p,
+#interests p {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+/* Section specific widths */
+#skills {
+  width: min(1000px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+#certifications {
+  width: min(400px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+#interests {
+  width: min(300px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+/* Links */
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-text);
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+/* Lists */
+ul {
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Grid positioning */
 .left {
-  grid-column: 2 / 10;
+  margin-right: auto;
 }
 
 .right {
-  grid-column: 6 / 12;
+  margin-left: auto;
+}
+
+/* Skills section */
+#skills-and-certifications .skills-content {
+  margin-bottom: 2rem;
+}
+
+/* Recommendations section */
+#recommendations b {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Header specific styles */
+#header h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+#header p {
+  font-size: clamp(1.5rem, 3vw, 2rem); /* Larger than base size */
+  margin-bottom: 0;
+  color: var(--color-text);
+}
+
+/* Hover effect */
+section {
+  transition: background-color 0.3s ease;
+}
+
+section:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section,
+  #header,
+  #projects,
+  #interests {
+    padding: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main {
+    padding-top: 2rem;
+  }
 }
