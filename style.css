@@ -1,4 +1,6 @@
-/* Modern CSS Reset */
+/* ==========================================================================
+   CSS Reset
+   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -7,17 +9,21 @@
   box-sizing: border-box;
 }
 
-/* Custom properties */
+/* ==========================================================================
+   Custom Properties
+   ========================================================================== */
 :root {
   --color-text: hsl(0, 0%, 100%);
   --section-spacing: clamp(200px, 15vh, 150px);
   --content-width: min(900px, 90vw);
   --reduced-width: min(900px, 70vw);
   --section-bg: rgba(0, 0, 0, 0.75);
-  --font-size-base: 1rem; /* Base font size for body text */
+  --font-size-base: 1rem;
 }
 
-/* Base styles */
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 body {
   color: var(--color-text);
   font-family: system-ui, sans-serif;
@@ -26,7 +32,7 @@ body {
   font-size: var(--font-size-base);
 }
 
-/* Canvas positioning */
+/* Canvas background */
 canvas {
   position: fixed;
   top: 0;
@@ -36,7 +42,7 @@ canvas {
   z-index: -1;
 }
 
-/* Main content */
+/* Main content wrapper */
 main {
   position: relative;
   width: 100%;
@@ -45,7 +51,10 @@ main {
   padding-top: 4rem;
 }
 
-/* Standard section styling */
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+/* Default section styling */
 section {
   margin: var(--section-spacing) auto;
   width: var(--content-width);
@@ -53,12 +62,17 @@ section {
   background: var(--section-bg);
   backdrop-filter: blur(1px);
   border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+section:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Reduced width sections */
 #header,
 #projects,
-#interests {
+#links {
   width: var(--reduced-width);
   max-width: 800px;
   margin-left: calc((100% - var(--content-width)) / 2);
@@ -76,7 +90,42 @@ section {
   justify-content: flex-start;
 }
 
-/* Typography */
+/* Skills section */
+#skills {
+  width: min(1000px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+/* Certifications section */
+#certifications {
+  width: min(500px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+/* Links section */
+#links {
+  width: min(400px, 70vw);
+  margin-right: auto;
+  margin-left: calc((100% - var(--content-width)) / 2);
+}
+
+/* ==========================================================================
+   Grid Positioning
+   ========================================================================== */
+.left {
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/* Headings */
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
@@ -92,39 +141,80 @@ h3 {
   margin-bottom: 1rem;
 }
 
-/* Unified font sizes */
+/* Header specific typography */
+#header h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+#header p {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0;
+  color: var(--color-text);
+}
+
+/* Body text and lists */
 p,
 li,
 ul,
 #skills-and-certifications b,
 #certifications,
 #skills p,
-#interests p {
+#links p {
   font-size: var(--font-size-base);
   color: var(--color-text);
   margin-bottom: 1rem;
 }
 
-/* Section specific widths */
-#skills {
-  width: min(1000px, 70vw);
-  margin-right: auto;
-  margin-left: calc((100% - var(--content-width)) / 2);
+/* ==========================================================================
+   Work History Section
+   ========================================================================== */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-#certifications {
-  width: min(400px, 70vw);
-  margin-right: auto;
-  margin-left: calc((100% - var(--content-width)) / 2);
+.job-header h3 {
+  margin: 0;
 }
 
-#interests {
-  width: min(300px, 70vw);
-  margin-right: auto;
-  margin-left: calc((100% - var(--content-width)) / 2);
+.date {
+  font-size: 1em;
+  color: #666;
+  font-weight: normal;
 }
 
-/* Links */
+.company-description {
+  font-style: italic;
+  color: #666;
+  margin: 5px 0 10px 0;
+  font-size: 0.9em;
+}
+
+/* ==========================================================================
+   Recommendations Section
+   ========================================================================== */
+#recommendations b {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.link-close {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   Skills Section
+   ========================================================================== */
+#skills-and-certifications .skills-content {
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Links and Interactive Elements
+   ========================================================================== */
 a {
   color: var(--color-text);
   text-decoration: none;
@@ -137,7 +227,9 @@ a:hover {
   opacity: 1;
 }
 
-/* Lists */
+/* ==========================================================================
+   Lists
+   ========================================================================== */
 ul {
   list-style-position: inside;
   margin-bottom: 1rem;
@@ -147,53 +239,14 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Grid positioning */
-.left {
-  margin-right: auto;
-}
-
-.right {
-  margin-left: auto;
-}
-
-/* Skills section */
-#skills-and-certifications .skills-content {
-  margin-bottom: 2rem;
-}
-
-/* Recommendations section */
-#recommendations b {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* Header specific styles */
-#header h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: 0.5rem;
-}
-
-#header p {
-  font-size: clamp(1.5rem, 3vw, 2rem); /* Larger than base size */
-  margin-bottom: 0;
-  color: var(--color-text);
-}
-
-/* Hover effect */
-section {
-  transition: background-color 0.3s ease;
-}
-
-section:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-/* Responsive adjustments */
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
 @media (max-width: 768px) {
   section,
   #header,
   #projects,
-  #interests {
+  #links {
     padding: 1.5rem;
     margin-left: auto;
     margin-right: auto;
