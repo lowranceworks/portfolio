@@ -58,7 +58,7 @@ section {
 /* Reduced width sections */
 #header,
 #projects,
-#interests {
+#links {
   width: var(--reduced-width);
   max-width: 800px;
   margin-left: calc((100% - var(--content-width)) / 2);
@@ -99,7 +99,7 @@ ul,
 #skills-and-certifications b,
 #certifications,
 #skills p,
-#interests p {
+#links p {
   font-size: var(--font-size-base);
   color: var(--color-text);
   margin-bottom: 1rem;
@@ -143,8 +143,8 @@ ul,
   margin-left: calc((100% - var(--content-width)) / 2);
 }
 
-#interests {
-  width: min(300px, 70vw);
+#links {
+  width: min(400px, 70vw);
   margin-right: auto;
   margin-left: calc((100% - var(--content-width)) / 2);
 }
@@ -223,7 +223,7 @@ section:hover {
   section,
   #header,
   #projects,
-  #interests {
+  #links {
     padding: 1.5rem;
     margin-left: auto;
     margin-right: auto;
