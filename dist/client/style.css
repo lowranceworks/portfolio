@@ -106,6 +106,31 @@ ul,
 }
 
 /* Section specific widths */
+
+/* Work history */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.job-header h3 {
+  margin: 0;
+}
+
+.date {
+  font-size: 1em;
+  color: #666;
+  font-weight: normal;
+}
+
+.company-description {
+  font-style: italic;
+  color: #666;
+  margin: 5px 0 10px 0;
+  font-size: 0.9em;
+}
+
 #skills {
   width: min(1000px, 70vw);
   margin-right: auto;
@@ -113,7 +138,7 @@ ul,
 }
 
 #certifications {
-  width: min(400px, 70vw);
+  width: min(500px, 70vw);
   margin-right: auto;
   margin-left: calc((100% - var(--content-width)) / 2);
 }
@@ -165,6 +190,11 @@ li {
 #recommendations b {
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.link-close {
+  margin-top: -15px;
+  margin-bottom: 15px;
 }
 
 /* Header specific styles */
